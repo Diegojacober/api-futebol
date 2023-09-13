@@ -29,7 +29,7 @@ async def create_country(country: CountrySchema, logged_user: UserModel = Depend
     return new_country
 
 # GET countries
-router.get('/', response_model=List[CountrySchema])
+@router.get('/', response_model=List[CountrySchema])
 async def get_countries(db: AsyncSession = Depends(get_session)):
     async with db as session:
         query = select(CountryModel)
@@ -40,10 +40,10 @@ async def get_countries(db: AsyncSession = Depends(get_session)):
     
 
 # GET country
-router.get('/{country_id}', response_model=CountrySchema, status_code=status.HTTP_200_OK)
+@router.get('/{country_id}', response_model=CountrySchema, status_code=status.HTTP_200_OK)
 async def get_country(country_id: int, db: AsyncSession = Depends(get_session)):
     async with db as session:
-        query = select(CountryModel).filter(CountryModel == country_id)
+        query = select(CountryModel).filter(CountryModel.id == country_id)
         result = await session.execute(query)
         country: CountryModel = result.scalars().unique().one_or_none()
         
@@ -55,10 +55,10 @@ async def get_country(country_id: int, db: AsyncSession = Depends(get_session)):
             
 
 # PUT artigo
-router.put('/{country_id}', response_model=CountrySchema, status_code=status.HTTP_202_ACCEPTED)
+@router.put('/{country_id}', response_model=CountrySchema, status_code=status.HTTP_202_ACCEPTED)
 async def put_country(country_id: int, country: CountrySchema , db: AsyncSession = Depends(get_session), logged_user: UserModel = Depends(get_current_user)):
     async with db as session:
-        query = select(CountryModel).filter(CountryModel == country_id)
+        query = select(CountryModel).filter(CountryModel.id == country_id)
         result = await session.execute(query)
         country_up: CountryModel = result.scalars().unique().one_or_none()
         
@@ -84,11 +84,11 @@ async def put_country(country_id: int, country: CountrySchema , db: AsyncSession
 
 
 # DELETE country
-router.delete('/{country_id}', status_code=status.HTTP_204_NO_CONTENT)
+@router.delete('/{country_id}', status_code=status.HTTP_204_NO_CONTENT)
 async def delete_country(country_id: int, db: AsyncSession = Depends(get_session), logged_user: UserModel = Depends(get_current_user)):
 
     async with db as session:
-        query = select(CountryModel).filter(CountryModel == country_id)
+        query = select(CountryModel).filter(CountryModel.id == country_id)
         result = await session.execute(query)
         country_del: CountryModel = result.scalars().unique().one_or_none()
         
