@@ -2,7 +2,6 @@ from typing import Optional, List
 
 from pydantic import BaseModel
 from schemas.country_schema import CountrySchema
-from schemas.season_schema import SeasonSchema
 
 class LeagueSchema(BaseModel):
     id: Optional[int] = None
@@ -18,7 +17,4 @@ class LeagueSchema(BaseModel):
 class LeagueSchemaCountry(LeagueSchema):
     country: Optional[CountrySchema]
     
-    
-class LeagueSchemaSeasons(LeagueSchemaCountry):
-    seasons: Optional[List[SeasonSchema]]
         
