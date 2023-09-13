@@ -1,0 +1,21 @@
+api de futebol
+
+meus endpoints
+
+get ligas disponiveis
+post liga
+put liga
+delete liga
+
+get times disponiveis
+post time
+put time
+delete time
+---------------------------
+
+endpoinsts api externa:
+
+jogadores de uma liga especifica
+jogadores de um time
+
+vai se conectar na nuvem no elephantSql, para buscar os dados
