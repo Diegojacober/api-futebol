@@ -1,8 +1,8 @@
 from typing import Optional, List
 
-from pydantic import BaseModel, HttpUrl
-from .country_schema import CountrySchema
-from .season_schema import SeasonSchema
+from pydantic import BaseModel
+from schemas.country_schema import CountrySchema
+from schemas.season_schema import SeasonSchema
 
 class LeagueSchema(BaseModel):
     id: Optional[int] = None

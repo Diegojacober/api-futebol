@@ -1,7 +1,7 @@
-from typing import Optional, List
+from typing import Optional
 
 from pydantic import BaseModel
-from .league_schema import LeagueSchema
+from schemas.league_schema import LeagueSchema
 
 class SeasonSchema(BaseModel):
     id: Optional[int] = None

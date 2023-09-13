@@ -1,8 +1,7 @@
 from typing import Optional, List
 
-from pydantic import BaseModel, HttpUrl
+from pydantic import BaseModel
 
-from .league_schema import LeagueSchema
 
 class CountrySchema(BaseModel):
     id: Optional[int] = None
@@ -13,7 +12,3 @@ class CountrySchema(BaseModel):
     
     class Config:
         from_attributes = True
-        
-        
-class CountrySchemaLeagues(CountrySchema):
-    leagues: Optional[List[LeagueSchema]]
