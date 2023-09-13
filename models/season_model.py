@@ -11,8 +11,8 @@ class SeasonModel(settings.DB_BASEMODEL):
     flag = Column(String(256))
     ref_api = Column(String(256))
     league_id = Column(Integer, ForeignKey('leagues.id'))
-    start = Column(DATE)
-    end = Column(DATE)
+    start = Column(String(256))
+    end = Column(String(256))
     current = Column(String(256))
     league = relationship("LeagueModel",
                            back_populates='seasons',
