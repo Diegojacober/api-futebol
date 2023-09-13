@@ -8,4 +8,5 @@ class UserModel(settings.DB_BASEMODEL):
     first_name = Column(String(256), nullable=True)
     last_name = Column(String(256), nullable=True)
     email = Column(String(256), index=True, nullable=False, unique=True)
+    password = Column(String(256), nullable=False)
     

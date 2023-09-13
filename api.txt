@@ -18,4 +18,27 @@ endpoinsts api externa:
 jogadores de uma liga especifica
 jogadores de um time
 
-vai se conectar na nuvem no elephantSql, para buscar os dados
+vai se conectar na nuvem no elephantSql, para buscar os dados.
+
+leagues
+
+id:39
+name:"Premier League"
+type:"League"
+logo:"https://media.api-sports.io/football/leagues/39.png"
+idCountry: ""
+
+countrys
+id
+name:"England"
+code:"GB"
+flag:"https://media.api-sports.io/flags/gb.svg"
+
+
+temporadas:
+id
+leagueId
+year:2010
+start:"2010-08-14"
+end:"2011-05-17"
+current:false

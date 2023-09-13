@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "api-futebol"
+version = "0.1.0"
+description = ""
+authors = ["Diego Alencar Jacober"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = {extras = ["all"], version = "^0.103.1"}
+psycopg = "^3.1.10"
+psycopg2 = "^2.9.7"
+psycopg-binary = "^3.1.10"
+email-validator = "^2.0.0.post2"
+python-jose = "^3.3.0"
+cryptography = "^41.0.3"
+SQLAlchemy = "^2.0.20"
+pydantic-settings = "^2.0.3"
+uvicorn = "^0.23.2"
+python-dotenv = "^1.0.0"
+httpx = "^0.25.0"
+asyncpg = "^0.28.0"
+bcrypt = "^4.0.1"
+passlib = "^1.7.4"
+pytz = "^2023.3.post1"
+asyncmy = "^0.2.8"
+pymysql = "^1.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
