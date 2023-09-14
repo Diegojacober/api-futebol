@@ -11,7 +11,6 @@ class CountryModel(settings.DB_BASEMODEL):
     flag = Column(String(256))
     code = Column(String(256))
     ref_api = Column(String(256))
-    ref_api = Column(String(256))
     leagues = relationship("LeagueModel",
                             cascade='all, delete-orphan',
                            back_populates='country',
