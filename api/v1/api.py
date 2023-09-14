@@ -6,6 +6,7 @@ from api.v1.endpoints import league
 from api.v1.endpoints import season
 from api.v1.endpoints import team
 from api.v1.endpoints import players
+from api.v1.endpoints import basket
 
 api_router = APIRouter()
 
@@ -15,3 +16,4 @@ api_router.include_router(league.router, prefix='/leagues', tags=['Leagues'])
 api_router.include_router(season.router, prefix='/seasons', tags=['Seasons'])
 api_router.include_router(team.router, prefix='/teams', tags=['Teams'])
 api_router.include_router(players.router, prefix='/players', tags=['Players'])
+api_router.include_router(basket.router, prefix='/basket', tags=['Basket'])
