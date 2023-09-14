@@ -15,4 +15,9 @@ class LeagueModel(settings.DB_BASEMODEL):
                            back_populates='leagues',
                            lazy='joined')
     
-   
+    seasons = relationship("SeasonModel",
+                            cascade='all, delete-orphan',
+                           back_populates='league',
+                           uselist=True,
+                           lazy='joined')
+    
