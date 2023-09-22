@@ -15,6 +15,8 @@ from schemas.user_schema import UserSchemaBase
 from schemas.user_schema import UserSchemaCreate
 from schemas.user_schema import UserSchemaUp
 
+from ..services.producer import publish
+
 from core.security import generate_hash_pass
 from core.auth import authenticate, create_access_token
 
@@ -40,7 +42,7 @@ async def post_user(user: UserSchemaCreate, db: AsyncSession = Depends(get_sessi
         try:
             session.add(new_user)
             await session.commit()
-
+            publish("send_email", { "address": f"{user.email}", "name": f"{user.first_name} {user.last_name}" })
         
             return new_user
         except IntegrityError as e:
