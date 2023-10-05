@@ -11,8 +11,9 @@ router = APIRouter()
 @router.get('/teams')
 async def get_teams():
     async with httpx.AsyncClient() as client:
-        r = await client.get(f'http://10.21.62.8:8011/api/v1/basquete/teams')
+        r = await client.get(f'http://10.21.62.8:8001/api/v1/basquete/teams/')
         
+        print(r.json())
         response = r.json()
         
         return response
@@ -21,7 +22,7 @@ async def get_teams():
 @router.get('/leagues')
 async def get_leagues():
     async with httpx.AsyncClient() as client:
-        e = await client.get(f'http://10.21.62.8:8011/api/v1/basquete/leagues')
+        e = await client.get(f'http://10.21.62.8:8001/api/v1/basquete/leagues/')
         
         response = e.json()
         

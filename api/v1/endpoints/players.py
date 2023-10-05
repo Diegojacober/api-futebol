@@ -19,7 +19,7 @@ router = APIRouter()
         
 
 # GET players by team code
-@router.get('team/{team_code}')
+@router.get('/team/{team_code}')
 async def get_players_by_team_code(team_code: int):
     async with httpx.AsyncClient() as client:
         r = await client.get(f'https://api-football-v1.p.rapidapi.com/v3/players?team={team_code}&season=2023', headers=HeaderApi)
@@ -29,7 +29,7 @@ async def get_players_by_team_code(team_code: int):
         return response['response']
     
 # GET player by league id
-@router.get('league/{league_id}')
+@router.get('/league/{league_id}')
 async def get_players_by_league_id(league_id: int):
     async with httpx.AsyncClient() as client:
         r = await client.get(f'https://api-football-v1.p.rapidapi.com/v3/players?league={league_id}&season=2023', headers=HeaderApi)

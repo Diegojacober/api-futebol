@@ -54,7 +54,7 @@ async def get_country(country_id: int, db: AsyncSession = Depends(get_session)):
                                 status_code=status.HTTP_404_NOT_FOUND)
             
 
-# PUT artigo
+# PUT country
 @router.put('/{country_id}', response_model=CountrySchema, status_code=status.HTTP_202_ACCEPTED)
 async def put_country(country_id: int, country: CountrySchema , db: AsyncSession = Depends(get_session), logged_user: UserModel = Depends(get_current_user)):
     async with db as session:
